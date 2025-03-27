@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="UTF-8">
-	<title>IMC</title>
+    <title>Calcul de l'IMC</title>
 </head>
-
 <body>
+    <h2>Entrez votre Poids et Taille</h2>
+    
+    <!-- 🔹 Afficher un message d'erreur si error=1 -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("error")) {
+            document.write("<p style='color:red;'>Veuillez remplir tous les champs correctement.</p>");
+        }
+    </script>
 
-	<form action="CalculIMC" method="post">
-
-		<label>Poids :</label>
-		<input type="text" name="poids" required>
-		<label>Taille :</label>
-		<input type="text" name="taille" required>
-		<button type="submit">Calculer</button>
-	</form>
+    <form method="POST" action="CalculMonImc">
+        Poids (kg): <input type="text" name="poids"><br>
+        Taille (m): <input type="text" name="taille"><br>
+        <input type="submit" value="Calculer IMC">
+    </form>
 </body>
-
 </html>
